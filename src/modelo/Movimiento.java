@@ -48,7 +48,10 @@ public class Movimiento {
 		return this.comision;
 	}
 
-	public boolean procesarPago(double cantidad, Cuenta cuenta) {
+	public boolean procesarPago(double cantidad, Cuenta cuenta) throws Exception {
+	    if (cantidad < 0) {
+	        throw new Exception("No se puede procesar un importe negativo");
+	    }
 		Movimiento movimiento = new Movimiento();
 		movimiento.setImporte(cantidad);
 		return bancoDestino.aprobarOperacion(movimiento, cuenta);

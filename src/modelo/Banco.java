@@ -12,10 +12,17 @@ public class Banco {
 		this.nombre = nombre;
 		this.cuentas = new ArrayList<>();
 	}
+	
+    public Banco() {
+        this.nombre = "Banco Nación"; // Valor por defecto para el nombre
+        this.cuentas = new ArrayList<>(); // Inicializa la lista aquí
+    }
+
 
 	public void abrirCuenta(String numeroCuenta, String titular) {
 		cuentas.add(new Cuenta(numeroCuenta, titular, this));
 	}
+	
 
 	// Método para obtener una cuenta
 	public Cuenta obtenerCuenta(String numeroCuenta) {
